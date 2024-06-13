@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="conexionFacturaN.cs" />
+    <Compile Include="conexionInventarioNegocio.cs" />
     <Compile Include="conexionSQLN.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

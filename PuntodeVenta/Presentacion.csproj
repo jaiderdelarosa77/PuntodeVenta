@@ -89,6 +89,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="VentanaPrincipal.resx">
       <DependentUpon>VentanaPrincipal.cs</DependentUpon>
@@ -111,6 +112,12 @@
       <Project>{33f0da13-c4dd-448a-9ce9-3721433ef1fe}</Project>
       <Name>Negocio</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\VentanaPrincipal1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\gestionar-el-inventario-en-las-empresas-de-comercio-electronico.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

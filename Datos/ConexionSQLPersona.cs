@@ -9,7 +9,7 @@ using System.Threading;
 
 namespace Datos
 {
-    public class ConexionSQL
+    public class ConexionSQLPersona
     {
         static string conexionString = "server= localhost; database= PuntodeVenta;" +
             " integrated security= true";

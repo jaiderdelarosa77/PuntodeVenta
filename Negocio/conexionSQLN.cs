@@ -11,7 +11,7 @@ namespace Negocio
 {
     public class conexionSQLN
     {
-        ConexionSQL cn=new ConexionSQL();
+        ConexionSQLPersona cn=new ConexionSQLPersona();
         public int conSQL(string user, string password)
         {
             return cn.consultaLogin(user, password);
