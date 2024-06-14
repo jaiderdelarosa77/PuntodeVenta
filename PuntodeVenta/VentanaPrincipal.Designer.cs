@@ -44,15 +44,15 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lbl_subtotal = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txt_CodigoProducto = new System.Windows.Forms.TextBox();
             this.btn_addProduct = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lbl_total = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.txt_desc = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btn_facturar = new System.Windows.Forms.Button();
             this.txt_cantidad = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txt_imp = new System.Windows.Forms.TextBox();
@@ -60,10 +60,12 @@
             this.txt_Factura = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.txt_clienteCodigo = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.button3 = new System.Windows.Forms.Button();
+            this.txt_clienteInfo = new System.Windows.Forms.TextBox();
+            this.btn_buscar = new System.Windows.Forms.Button();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.gráficoDeReportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -167,7 +169,8 @@
             // reportesToolStripMenuItem
             // 
             this.reportesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.historialDeFacturasToolStripMenuItem});
+            this.historialDeFacturasToolStripMenuItem,
+            this.gráficoDeReportesToolStripMenuItem});
             this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
             this.reportesToolStripMenuItem.Size = new System.Drawing.Size(82, 24);
             this.reportesToolStripMenuItem.Text = "Reportes";
@@ -207,15 +210,15 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "Sub Total:";
             // 
-            // label2
+            // lbl_subtotal
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(132, 320);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(114, 54);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "0.00";
+            this.lbl_subtotal.AutoSize = true;
+            this.lbl_subtotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_subtotal.Location = new System.Drawing.Point(132, 320);
+            this.lbl_subtotal.Name = "lbl_subtotal";
+            this.lbl_subtotal.Size = new System.Drawing.Size(114, 54);
+            this.lbl_subtotal.TabIndex = 5;
+            this.lbl_subtotal.Text = "0.00";
             // 
             // label3
             // 
@@ -253,15 +256,15 @@
             this.label4.TabIndex = 9;
             this.label4.Text = "Total:";
             // 
-            // label5
+            // lbl_total
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(245, 397);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(114, 54);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "0.00";
+            this.lbl_total.AutoSize = true;
+            this.lbl_total.Font = new System.Drawing.Font("Microsoft Sans Serif", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_total.Location = new System.Drawing.Point(245, 397);
+            this.lbl_total.Name = "lbl_total";
+            this.lbl_total.Size = new System.Drawing.Size(114, 54);
+            this.lbl_total.TabIndex = 10;
+            this.lbl_total.Text = "0.00";
             // 
             // label6
             // 
@@ -280,14 +283,15 @@
             this.txt_desc.Size = new System.Drawing.Size(84, 22);
             this.txt_desc.TabIndex = 12;
             // 
-            // button2
+            // btn_facturar
             // 
-            this.button2.Location = new System.Drawing.Point(771, 304);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(143, 99);
-            this.button2.TabIndex = 13;
-            this.button2.Text = "Facturar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btn_facturar.Location = new System.Drawing.Point(771, 304);
+            this.btn_facturar.Name = "btn_facturar";
+            this.btn_facturar.Size = new System.Drawing.Size(143, 99);
+            this.btn_facturar.TabIndex = 13;
+            this.btn_facturar.Text = "Facturar";
+            this.btn_facturar.UseVisualStyleBackColor = true;
+            this.btn_facturar.Click += new System.EventHandler(this.btn_facturar_Click);
             // 
             // txt_cantidad
             // 
@@ -348,12 +352,12 @@
             this.label10.TabIndex = 20;
             this.label10.Text = "Codigo Cliente:";
             // 
-            // textBox6
+            // txt_clienteCodigo
             // 
-            this.textBox6.Location = new System.Drawing.Point(36, 201);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 22);
-            this.textBox6.TabIndex = 21;
+            this.txt_clienteCodigo.Location = new System.Drawing.Point(36, 201);
+            this.txt_clienteCodigo.Name = "txt_clienteCodigo";
+            this.txt_clienteCodigo.Size = new System.Drawing.Size(100, 22);
+            this.txt_clienteCodigo.TabIndex = 21;
             // 
             // label11
             // 
@@ -364,32 +368,44 @@
             this.label11.TabIndex = 22;
             this.label11.Text = "Cliente";
             // 
-            // textBox7
+            // txt_clienteInfo
             // 
-            this.textBox7.Location = new System.Drawing.Point(541, 33);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.ReadOnly = true;
-            this.textBox7.Size = new System.Drawing.Size(248, 22);
-            this.textBox7.TabIndex = 23;
+            this.txt_clienteInfo.Location = new System.Drawing.Point(541, 33);
+            this.txt_clienteInfo.Name = "txt_clienteInfo";
+            this.txt_clienteInfo.ReadOnly = true;
+            this.txt_clienteInfo.Size = new System.Drawing.Size(248, 22);
+            this.txt_clienteInfo.TabIndex = 23;
             // 
-            // button3
+            // btn_buscar
             // 
-            this.button3.Location = new System.Drawing.Point(41, 229);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 24;
-            this.button3.Text = "Buscar";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btn_buscar.Location = new System.Drawing.Point(41, 229);
+            this.btn_buscar.Name = "btn_buscar";
+            this.btn_buscar.Size = new System.Drawing.Size(75, 23);
+            this.btn_buscar.TabIndex = 24;
+            this.btn_buscar.Text = "Buscar";
+            this.btn_buscar.UseVisualStyleBackColor = true;
+            this.btn_buscar.Click += new System.EventHandler(this.btn_buscar_Click);
+            // 
+            // printDocument1
+            // 
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.imprimir);
+            // 
+            // gráficoDeReportesToolStripMenuItem
+            // 
+            this.gráficoDeReportesToolStripMenuItem.Name = "gráficoDeReportesToolStripMenuItem";
+            this.gráficoDeReportesToolStripMenuItem.Size = new System.Drawing.Size(225, 26);
+            this.gráficoDeReportesToolStripMenuItem.Text = "Grafico de Ventas";
+            this.gráficoDeReportesToolStripMenuItem.Click += new System.EventHandler(this.gráficoDeReportesToolStripMenuItem_Click);
             // 
             // VentanaPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(926, 450);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.textBox7);
+            this.Controls.Add(this.btn_buscar);
+            this.Controls.Add(this.txt_clienteInfo);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.txt_clienteCodigo);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.txt_Factura);
             this.Controls.Add(this.label9);
@@ -397,15 +413,15 @@
             this.Controls.Add(this.label8);
             this.Controls.Add(this.txt_cantidad);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btn_facturar);
             this.Controls.Add(this.txt_desc);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
+            this.Controls.Add(this.lbl_total);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btn_addProduct);
             this.Controls.Add(this.txt_CodigoProducto);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lbl_subtotal);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.pictureBox1);
@@ -435,17 +451,17 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbl_subtotal;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txt_CodigoProducto;
         private System.Windows.Forms.Button btn_addProduct;
         private System.Windows.Forms.ToolStripMenuItem reportesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem historialDeFacturasToolStripMenuItem;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lbl_total;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txt_desc;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btn_facturar;
         private System.Windows.Forms.TextBox txt_cantidad;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txt_imp;
@@ -453,14 +469,16 @@
         private System.Windows.Forms.TextBox txt_Factura;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox txt_clienteCodigo;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.TextBox txt_clienteInfo;
+        private System.Windows.Forms.Button btn_buscar;
         private System.Windows.Forms.ToolStripMenuItem impVentaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem descuentoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem clientesToolStripMenuItem;
         private System.Windows.Forms.ToolStripTextBox ts_imp;
         private System.Windows.Forms.ToolStripTextBox ts_desc;
+        private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.ToolStripMenuItem gráficoDeReportesToolStripMenuItem;
     }
 }

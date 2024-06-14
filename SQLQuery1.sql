@@ -62,7 +62,13 @@ create table Facturacion(
 )
 
 Alter Table Facturacion add PrecioTotal as (PrecioxUnidad*Cantidad)
+Alter Table Facturacion drop column CodigoCliente
+Alter Table Facturacion add Descuento float
 
-Select * from Facturacion
+select * from Facturacion
 
-Select distinct top 1 NumFactura from Facturacion order by NumFactura desc
+Select (Select distinct top 1 NumFactura from Facturacion order by NumFactura desc)+1
+
+Select NombreCliente + ' '+ ApellidoCliente as Nombre, Descuento from Clientes where CodigoCliente=''
+
+INSERT INTO Facturacion (Codigo, Producto, PrecioxUnidad, Cantidad, Descuento, Cliente, DescuentoCliente, MontoTotal, NumFactura) VALUES ('MP1','Mouse',10,2,0,'Eduardo Alfaro',0,5,65,4,3)
